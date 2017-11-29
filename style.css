@@ -1,0 +1,27 @@
+body {
+  background-color: yellow;
+}
+
+.area {
+  height: 608px;
+  width: 608px;
+  background-color: white;
+  position: relative;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: red;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
