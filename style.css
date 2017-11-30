@@ -12,10 +12,11 @@ body {
 .box {
   height: 200px;
   width: 200px;
-  background-color: red;
   display: inline-block;
   position: relative;
   margin: 0;
+  font-size: 165px;
+  text-align: center;
 }
 
 .right {
