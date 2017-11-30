@@ -70,6 +70,9 @@ function leftRight (start, end) {
     } else if (grid[i][1].innerHTML == 0) {
       grid[i][1].innerHTML = grid[i][start].innerHTML;
       grid[i][start].innerHTML = 0;
+    } else if (grid[i][1].innerHTML == grid[i][start].innerHTML) {
+      grid[i][1].innerHTML = parseInt(grid[i][1].innerText) + parseInt(grid[i][start].innerText);
+      grid[i][start].innerHTML = 0;
     }
   });
 }
@@ -78,6 +81,9 @@ function leftRightMid (start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[i][end].innerHTML == 0) {
       grid[i][end].innerHTML = grid[i][start].innerHTML;
+      grid[i][start].innerHTML = 0;
+    } else if (grid[i][end].innerHTML == grid[i][start].innerHTML) {
+      grid[i][end].innerHTML = parseInt(grid[i][end].innerText) + parseInt(grid[i][start].innerText);
       grid[i][start].innerHTML = 0;
     }
   });
@@ -91,6 +97,9 @@ function upDown (start, end) {
     } else if (grid[1][i].innerHTML == 0) {
       grid[1][i].innerHTML = grid[start][i].innerHTML;
       grid[start][i].innerHTML = 0;
+    } else if (grid[1][i].innerHTML == grid[start][i].innerHTML) {
+      grid[1][i].innerHTML = parseInt(grid[1][i].innerText) + parseInt(grid[start][i].innerText);
+      grid[start][i].innerHTML = 0;
     }
   });
 }
@@ -99,6 +108,9 @@ function upDownMid (start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[end][i].innerHTML == 0) {
       grid[end][i].innerHTML = grid[start][i].innerHTML;
+      grid[start][i].innerHTML = 0;
+    } else if (grid[end][i].innerHTML == grid[start][i].innerHTML) {
+      grid[end][i].innerHTML = parseInt(grid[end][i].innerText) + parseInt(grid[start][i].innerText);
       grid[start][i].innerHTML = 0;
     }
   });
