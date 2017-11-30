@@ -1,6 +1,9 @@
 $(function () {
 
   $box = $('.box');
+  $area = $('.area');
+  $lose = $('h2');
+  $lose.css("visibility", "hidden");
 
   grid = [[$box[0],$box[1],$box[2]],[$box[3],$box[4],$box[5]],[$box[6],$box[7],$box[8]]]
 
@@ -36,6 +39,11 @@ $(function () {
 
 });
 
+function lose () {
+  $(document).off("keydown");
+  $lose.css("visibility", "visible");
+}
+
 function addNewNumber (grid) {
   empty = [];
   grid.forEach(function (x, i) {
@@ -46,11 +54,11 @@ function addNewNumber (grid) {
     });
   });
   number = randomNumber(empty.length);
-  // console.log(empty[number]);
   if (empty.length != 0) {
     empty[number].innerHTML = 2;
   } else {
     console.log("You lose!");
+    lose();
   }
 
 }
