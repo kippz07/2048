@@ -9,35 +9,58 @@ $(function () {
       console.log("down");
       upDownMid(1, 2);
       upDown(0, 2);
+      addNewNumber(grid);
     }
 
     if (event.keyCode == 38) {
       console.log("up");
       upDownMid(1, 0);
       upDown(2, 0);
+      addNewNumber(grid);
     }
 
     if (event.keyCode == 39) {
       console.log("right");
       leftRightMid(1, 2);
       leftRight(0, 2);
+      addNewNumber(grid);
     }
 
     if (event.keyCode == 37) {
       console.log("left");
       leftRightMid(1, 0);
       leftRight(2, 0);
+      addNewNumber(grid);
     }
   });
 
 });
 
+function addNewNumber (grid) {
+  empty = [];
+  grid.forEach(function (x, i) {
+    x.forEach(function (y, j) {
+      if (y.innerHTML == 0) {
+        empty.push(y);
+      }
+    });
+  });
+  number = randomNumber(empty.length);
+  // console.log(empty[number]);
+  if (empty.length != 0) {
+    empty[number].innerHTML = 2;
+  } else {
+    console.log("You lose!");
+  }
+
+}
+
 function randomNumber (number) {
-		var min = 0;
-		var max = number;
-		var num = Math.floor(Math.random() * (max - min)) + min;
-		return num;
-	}
+	var min = 0;
+	var max = number;
+	var num = Math.floor(Math.random() * (max - min)) + min;
+	return num;
+}
 
 function leftRight (start, end) {
   grid[start].forEach(function (x, i) {
@@ -51,7 +74,7 @@ function leftRight (start, end) {
   });
 }
 
-function leftRightMid(start, end) {
+function leftRightMid (start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[i][end].innerHTML == 0) {
       grid[i][end].innerHTML = grid[i][start].innerHTML;
@@ -72,7 +95,7 @@ function upDown (start, end) {
   });
 }
 
-function upDownMid(start, end) {
+function upDownMid (start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[end][i].innerHTML == 0) {
       grid[end][i].innerHTML = grid[start][i].innerHTML;
@@ -80,3 +103,31 @@ function upDownMid(start, end) {
     }
   });
 }
+// function getGridLocation (number) {
+//   row = 0;
+//   column = 0;
+//   switch (number){
+//     case 1: column = 1;
+//       break;
+//     case 2: column = 2;
+//       break;
+//     case 3: row = 1;
+//       break;
+//     case 4: row= 1;
+//       column = 1;
+//       break;
+//     case 5: row = 1;
+//       column = 2;
+//       break;
+//     case 6: row =2 ;
+//       break;
+//     case 7: row = 2;
+//       column = 1;
+//       break;
+//     case 8: row = 2;
+//       column = 2;
+//       break;
+//   }
+//   console.log(row + "," + column);
+//   return [row, column];
+// }
