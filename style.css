@@ -10,13 +10,14 @@ body {
 }
 
 .box {
-  height: 200px;
+  height: 170px;
   width: 200px;
   display: inline-block;
   position: relative;
   margin: 0;
-  font-size: 165px;
+  font-size: 90px;
   text-align: center;
+  padding-top: 30px;
 }
 
 .right {

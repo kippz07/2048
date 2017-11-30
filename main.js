@@ -60,7 +60,6 @@ function addNewNumber (grid) {
     console.log("You lose!");
     lose();
   }
-
 }
 
 function randomNumber (number) {
