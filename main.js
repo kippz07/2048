@@ -7,32 +7,39 @@ $(function () {
   $(document).keydown(function (event) {
     if (event.keyCode == 40) {
       console.log("down");
-      updownmid(1, 2);
-      updown(0, 2);
+      upDownMid(1, 2);
+      upDown(0, 2);
     }
 
     if (event.keyCode == 38) {
       console.log("up");
-      updownmid(1, 0);
-      updown(2, 0);
+      upDownMid(1, 0);
+      upDown(2, 0);
     }
 
     if (event.keyCode == 39) {
       console.log("right");
-      leftrightmid(1, 2);
-      leftright(0, 2);
+      leftRightMid(1, 2);
+      leftRight(0, 2);
     }
 
     if (event.keyCode == 37) {
       console.log("left");
-      leftrightmid(1, 0);
-      leftright(2, 0);
+      leftRightMid(1, 0);
+      leftRight(2, 0);
     }
   });
 
 });
 
-function leftright (start, end) {
+function randomNumber (number) {
+		var min = 0;
+		var max = number;
+		var num = Math.floor(Math.random() * (max - min)) + min;
+		return num;
+	}
+
+function leftRight (start, end) {
   grid[start].forEach(function (x, i) {
     if ((grid[i][1].innerHTML == 0) && (grid[i][end].innerHTML == 0)) {
       grid[i][end].innerHTML = grid[i][start].innerHTML;
@@ -44,7 +51,7 @@ function leftright (start, end) {
   });
 }
 
-function leftrightmid(start, end) {
+function leftRightMid(start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[i][end].innerHTML == 0) {
       grid[i][end].innerHTML = grid[i][start].innerHTML;
@@ -53,7 +60,7 @@ function leftrightmid(start, end) {
   });
 }
 
-function updown (start, end) {
+function upDown (start, end) {
   grid[start].forEach(function (x, i) {
     if ((grid[1][i].innerHTML == 0) && (grid[end][i].innerHTML == 0)) {
       grid[end][i].innerHTML = grid[start][i].innerHTML;
@@ -65,7 +72,7 @@ function updown (start, end) {
   });
 }
 
-function updownmid(start, end) {
+function upDownMid(start, end) {
   grid[start].forEach(function (x, i) {
     if (grid[end][i].innerHTML == 0) {
       grid[end][i].innerHTML = grid[start][i].innerHTML;
